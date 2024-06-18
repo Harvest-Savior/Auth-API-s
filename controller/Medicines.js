@@ -283,7 +283,7 @@ export const updateMedicine = async (req, res) => {
                         status: 'success',
                         message: 'Data obat berhasil diperbarui',
                         data:{
-                            namaObat, deskripsi, penyakit, harga, stok, gambar, url
+                            namaObat, deskripsi, penyakit, harga, stok, gambarName, url
                         }
                     });
                 } catch (error) {
