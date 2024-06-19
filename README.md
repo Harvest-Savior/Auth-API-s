@@ -15,9 +15,9 @@ This project is an authentication API built with Express.js designed to serve tw
 ## Farmer
 ### Request:
 
-    - **Endpoint:** `/register/farmer`
-    - **Method:** `POST`
-    - **Request Body (JSON):**
+- **Endpoint:** `/register/farmer`
+- **Method:** `POST`
+- **Request Body (JSON):**
         ```json
             {
               "namaLengkap": "Examplename",
