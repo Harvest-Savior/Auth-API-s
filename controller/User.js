@@ -225,6 +225,7 @@ export const loginFarmer = async (req, res) => {
             })
         const userId = user[0].id
         const namaLengkap = user[0].namaLengkap
+        const gambar = user[0].url
         const email = user[0].email
         const accessToken = jwt.sign({userId, namaLengkap, email}, process.env.ACCESS_TOKEN, {
             expiresIn: '1h'
@@ -245,7 +246,7 @@ export const loginFarmer = async (req, res) => {
             status: "success",
             message: "Berhasil login",
             data:{
-                namaLengkap, email, accessToken
+                namaLengkap, gambar, email, accessToken
             }})
     } catch (error) {
         res.status(404).json({
@@ -270,6 +271,7 @@ export const loginStore = async (req, res) => {
             })
         const userId = user[0].id
         const namaToko = user[0].namaToko
+        const gambar = user[0].url
         const email = user[0].email
         const alamat = user[0].alamat
         const noHp = user[0].noHp
@@ -293,7 +295,7 @@ export const loginStore = async (req, res) => {
                 status: "success",
                 message: "Berhasil login",
                 data:{
-                    namaToko, email, alamat, noHp, accessToken
+                    namaToko, gambar, email, alamat, noHp, accessToken
                 }})
     } catch (error) {
         res.status(404).json({
