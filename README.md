@@ -19,13 +19,13 @@ This project is an authentication API built with Express.js designed to serve tw
 - **Method:** `POST`
 - **Request Body (JSON):**
     ```json
-{
-  "namaLengkap": "Examplename",
-  "email": "example@example.com",
-  "password": "your_password",
-  "confPassword": "your_password",
-  "file": "image.jpg"
-}
+    {
+      "namaLengkap": "Examplename",
+      "email": "example@example.com",
+      "password": "your_password",
+      "confPassword": "your_password",
+      "file": "image.jpg"
+    }
 
 
 
