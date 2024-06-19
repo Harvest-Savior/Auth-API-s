@@ -21,11 +21,11 @@ This project is an authentication API built with Express.js designed to serve tw
 - **Content-Type:** `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
-      namaLengkap: Examplename
-      email: example@example.com
-      password: your_password
-      confPassword": your_password
-      file: image.jpg
+  namaLengkap: Examplename
+  email: example@example.com
+  password: your_password
+  confPassword": your_password
+  file: image.jpg
   
            
 #### Response
