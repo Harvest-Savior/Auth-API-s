@@ -17,7 +17,7 @@ export const addMedicine = async (req, res) => {
             });
         }
 
-        const { namaObat, deskripsi, stok, harga, penyakit } = req.body;
+        const { namaObat, deskripsi, stok, harga, penyakit, linkProduct } = req.body;
         const file = req.file;
 
         // Validasi apakah nama obat sudah ada untuk user yang sedang login
@@ -76,6 +76,7 @@ export const addMedicine = async (req, res) => {
                 harga,
                 penyakit,
                 gambar: gambarName,
+                linkProduct,
                 url,
                 storeuserId: user.id // Simpan storeuserId
             });
@@ -208,7 +209,7 @@ export const updateMedicine = async (req, res) => {
         }
 
         const { id } = req.params;
-        const { namaObat, deskripsi, stok, harga, penyakit } = req.body;
+        const { namaObat, deskripsi, stok, harga, penyakit, linkProduct } = req.body;
 
         const medicine = await Medicines.findOne({
             where: {
@@ -271,6 +272,7 @@ export const updateMedicine = async (req, res) => {
                         harga,
                         penyakit,
                         gambar: gambarName,
+                        linkProduct,
                         url
                     }, {
                         where: {
@@ -283,7 +285,7 @@ export const updateMedicine = async (req, res) => {
                         status: 'success',
                         message: 'Data obat berhasil diperbarui',
                         data:{
-                            namaObat, deskripsi, penyakit, harga, stok, gambarName, url
+                            namaObat, deskripsi, penyakit, harga, stok, gambarName, linkProduct, url
                         }
                     });
                 } catch (error) {
@@ -301,7 +303,8 @@ export const updateMedicine = async (req, res) => {
                     deskripsi,
                     stok,
                     harga,
-                    penyakit
+                    penyakit,
+                    linkProduct,
                 }, {
                     where: {
                         id: id,
@@ -313,7 +316,7 @@ export const updateMedicine = async (req, res) => {
                     status: 'success',
                     message: 'Data obat berhasil diperbarui',
                     data:{
-                        namaObat, deskripsi, penyakit, harga, stok
+                        namaObat, deskripsi, penyakit, harga, stok, linkProduct
                     }
                 });
             } catch (error) {

@@ -37,6 +37,9 @@ const Medicines = db.define('medicines', {
     gambar: {
         type: DataTypes.STRING
     },
+    linkProduct:{
+        type: DataTypes.STRING
+    },
     url: {
         type: DataTypes.STRING
     },
