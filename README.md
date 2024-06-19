@@ -147,7 +147,7 @@ This project is an authentication API built with Express.js designed to serve tw
         "noHp": "082256718291",
         "password": "$2b$10$JmsjFsb.j5rVSQ4qXDNDcegUKApDmzDS/VhwSfWL5ErasLpYTrx3W",
         "gambar": "aa7c99f89b04361664f31d066f66f716.png",
-        "url": "http://34.50.79.94:8080/uploads/aa7c99f89b04361664f31d066f66f716.png",
+        "url": "http://34.50.79.94:8080/uploads/***************.png",
         "updatedAt": "2024-06-19T10:35:29.670Z",
         "createdAt": "2024-06-19T10:35:29.670Z"
     }
@@ -188,7 +188,32 @@ This project is an authentication API built with Express.js designed to serve tw
     "status": "fail",
     "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
   }
+### Logout (`POST /logout/store`)
+- **Endpoint:** `/logout/store`
+- **Method:** `DELETE`
+#### Response
+- **Success (200): OK**
+  ``` json
+  {
+    "status": "success",
+    "message": "Berhasil logout"
+  }
+# Medicine CRUD Operations
+#### Request:
+- **Endpoint:** `/addMedicine`
+- **Method:** `POST`
+- **Content-Type:** `multipart/form-data`
+- **Request Body (Form-data):**
+  ```plaintext
+  namaObat: Examplename
+  deskripsi: Explain Deskripsi
+  Harga: 10000
+  Stok: 12
+  penyakit: Jamur Daun pada Tomat
+  file: image.jpg
+  linkProduct: url
 
+  Notes : Use token Bearer Token from Login User
   
     
 
