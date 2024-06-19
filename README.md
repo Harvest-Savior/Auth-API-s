@@ -49,6 +49,13 @@ This project is an authentication API built with Express.js designed to serve tw
     "status": "fail",
     "message": "Email sudah terdaftar"
   }
+- **Error (400): Bad Request**
+  Validasi email harus mengandung karakter '@'
+  ``` json
+  {
+     "status: 'fail',"
+     "message: 'Email tidak valid'"
+  }
 
   
 
