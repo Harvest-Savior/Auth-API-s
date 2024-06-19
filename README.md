@@ -19,8 +19,9 @@ This project is an authentication API built with Express.js designed to serve tw
 
 - **Endpoint:** `/register/farmer`
 - **Method:** `POST`
-- **Request Body(JSON)**
-  ```json
+- **Request Body (JSON):**
+
+```json
 {
   "email": "example@example.com",
   "password": "your_password",
