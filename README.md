@@ -18,7 +18,8 @@ jan lupa isi ini los
 
 - **Endpoint:** `/register/farmer`
 - **Method:** `POST`
-- **Content-Type:** `multipart/form-data`
+- **Headers:**
+    - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
   namaLengkap: Examplename
@@ -40,8 +41,7 @@ jan lupa isi ini los
         "password": "$2b$10$2JWsuJeNWL7fblQDUPm7uewCylioHALYMyzHLIFLs2XMI2zStZ2Aa",
         "gambar": "8a24fcc78c36fdc93766a4ec66a98a69.jpg",
         "url": "http://34.50.79.94:8080/uploads/**********.jpg",
-        "updatedAt": "2024-06-19T09:20:21.161Z",
-        "createdAt": "2024-06-19T09:20:21.161Z"
+       
       }
     }
 - **Error (400): Bad Request**
@@ -124,7 +124,8 @@ jan lupa isi ini los
 #### Request:
 - **Endpoint:** `/register/store`
 - **Method:** `POST`
-- **Content-Type:** `multipart/form-data`
+- **Header:** 
+  - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
   namaToko: Examplename
@@ -148,8 +149,7 @@ jan lupa isi ini los
         "password": "$2b$10$JmsjFsb.j5rVSQ4qXDNDcegUKApDmzDS/VhwSfWL5ErasLpYTrx3W",
         "gambar": "aa7c99f89b04361664f31d066f66f716.png",
         "url": "http://34.50.79.94:8080/uploads/***************.png",
-        "updatedAt": "2024-06-19T10:35:29.670Z",
-        "createdAt": "2024-06-19T10:35:29.670Z"
+       
     }
   }
 - **Error (400): Bad Request**
@@ -199,11 +199,13 @@ jan lupa isi ini los
     "message": "Berhasil logout"
   }
 # Medicine CRUD Operations
-### Create
+### Create Medicine
 #### Request:
 - **Endpoint:** `/addMedicine`
 - **Method:** `POST`
-- **Content-Type:** `multipart/form-data`
+- - **Headers:**
+    - `Authorization`: `Bearer <token>`
+    - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
   namaObat: Examplename
@@ -232,9 +234,6 @@ jan lupa isi ini los
         "gambar": "*************.jpeg",
         "linkProduct": "https://dillinger.io/",
         "url": "http://34.50.79.94:8080/uploads/***********.jpeg",
-        "storeuserId": 8,
-        "updatedAt": "2024-06-19T12:17:11.602Z",
-        "createdAt": "2024-06-19T12:17:11.602Z"
     }
   }
 - **Error (400): Bad Request : Jika Bearer Token tidak di input**
@@ -280,14 +279,79 @@ jan lupa isi ini los
     "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
   }
 
-### Read
+### Read Medicine
 #### Request:
 - **Endpoint:** `/getmedicines`
 - **Method:** `GET`
-- **Headers:
-    - `Authorization`: `Bearer <token>`**
-
-  
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+    "status": "success",
+    "message": "Berhasil memuat data obat",
+    "medicines": [
+        {
+            "id": 15,
+            "namaObat": "coba obat",
+            "deskripsi": "ini deskripis obat",
+            "stok": "Stock"
+            "harga": "Price",
+            "penyakit": "Disease",
+            "gambar": "**********.jpeg",
+            "linkProduct": "https:*********",
+            "url": "http://34.50.79.94:8080/uploads/*********.jpeg",
+        }
+    ]
+  }
+- **Error (500): Internal Server Error**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Internal Server Error"
+  }
+### Delete Medicine
+#### Request:
+- **Endpoint:** `/delMedicines/:id`
+- **Method:** `DELETE`
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+  "status": "success",
+  "message": "Data obat berhasil dihapus"
+  }
+- **Error (400): Bad Request**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Data obat tidak ditemukan atau Anda tidak memiliki izin"
+  }
+- **Error (500): Internal Server Error**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Internal Server Error"
+  }
+### Update Medicine
+#### Request:
+- **Endpoint:** `/updateMedicines/:id`
+- **Method:** `PUT`
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+    - `Content-Type`: `multipart/form-data`
+- **Request Body (Form-data):**
+  ```plaintext
+  `namaObat`: Updated Medicine Name
+  deskripsi: Updated Medicine Description
+  stok: Updated Stock
+  harga: Updated Price
+  penyakit: Updated Disease
+  gambar: image file
+  linkProduct: Updated Product Link
   
     
 
