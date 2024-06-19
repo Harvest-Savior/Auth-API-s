@@ -23,10 +23,11 @@ This project is an authentication API built with Express.js designed to serve tw
 
 ```json
 {
+  "namaLengkap": "Examplename",
   "email": "example@example.com",
   "password": "your_password",
-  "username": "user123",
-  "address": "123 Street, City"
+  "confPassword": "your_password",
+  "file": "image.jpg"
 }
 
     
