@@ -2,6 +2,11 @@ import path from 'path';
 import fs from 'fs';
 import Medicines from "../model/medicines.js";
 import storeusers from "../model/storeusers.js";
+
+const generateImageUrl = (req, filename) => {
+    return `${req.protocol}://${req.get("host")}/uploads/${filename}`;
+};
+
 export const addMedicine = async (req, res) => {
     try {
         const user = await storeusers.findOne({
@@ -61,7 +66,7 @@ export const addMedicine = async (req, res) => {
         }
 
         const gambarName = `${file.filename}${ext}`;
-        const url = `${req.protocol}://${req.get("host")}/uploads/${gambarName}`;
+        const url = generateImageUrl(req, gambarName)
         const filePath = `./uploads/${gambarName}`;
 
         try {
@@ -245,8 +250,8 @@ export const updateMedicine = async (req, res) => {
             }
 
             const gambarName = `${file.filename}${ext}`;
-            const url = `${req.protocol}://${req.get("host")}/uploads/${gambarName}`;
-
+            const url = generateImageUrl(req, gambarName)
+            
             // Hapus gambar lama jika ada
             if (medicine.gambar) {
                 fs.unlink(`./uploads/${medicine.gambar}`, (err) => {

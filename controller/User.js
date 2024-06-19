@@ -6,6 +6,11 @@ import Stores from "../model/storeusers.js";
 import storeusers from "../model/storeusers.js";
 import path from "path";
 import fs from "fs";
+
+const generateImageUrl = (req, filename) => {
+    return `${req.protocol}://${req.get("host")}/uploads/${filename}`;
+};
+
 export const getStoreUsers = async (req, res) => {
     try {
         const user = await storeusers.findOne({
@@ -87,7 +92,7 @@ export const registerFarmer = async (req, res) => {
     }
 
     const gambarName = `${file.filename}${ext}`;
-    const url = `${req.protocol}://${req.get("host")}/uploads/${gambarName}`;
+    const url = generateImageUrl(req, gambarName)
     const filePath = `./uploads/${gambarName}`;
 
     try {
@@ -170,7 +175,7 @@ export const registerStore = async (req, res) => {
     }
 
     const gambarName = `${file.filename}${ext}`;
-    const url = `${req.protocol}://${req.get("host")}/uploads/${gambarName}`;
+    const url = generateImageUrl(req, gambarName)
     const filePath = `./uploads/${gambarName}`;
 
     try {

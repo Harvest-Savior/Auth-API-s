@@ -22,7 +22,11 @@ try {
 app.use(express.json())
 app.use(cookieParser())
 app.use(router)
-app.use(cors())
+app.use(cors({
+    origin: '*', // Allow all origins. Adjust as needed.
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(FileUpload())
 app.use('/uploads', express.static('uploads'));
 app.listen(port, () => {
