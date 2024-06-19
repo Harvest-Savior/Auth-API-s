@@ -9,6 +9,11 @@ This project is an authentication API built with Express.js designed to serve tw
 
 # Access Our Deployed API
 jan lupa isi ini los
+# Table Of Content
+1. [Authentication API]
+   - [Create Account]Create Account (`POST /register/farmer`)
+   - [Login](#login-post-login)
+   - [Validate Token](#validate-token-post-ping)
 
 
 # Endpoint Description
