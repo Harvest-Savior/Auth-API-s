@@ -27,7 +27,6 @@ This project is an authentication API built with Express.js designed to serve tw
   confPassword": your_password
   file: image.jpg
   
-           
 #### Response
 - **Success (200): OK**
   ``` json
@@ -81,8 +80,16 @@ This project is an authentication API built with Express.js designed to serve tw
     "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
   }
 
-  
+### Login (`POST /login/farmer`)
+#### Request:
 
-
+- **Endpoint:** `/login/farmer`
+- **Method:** `POST`
+- **Request Body (JSON):**
+  ``` json
+  {
+    "email": "example@example.com",
+    "password": "your_password"
+  }
     
 
