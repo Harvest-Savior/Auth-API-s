@@ -61,6 +61,24 @@ This project is an authentication API built with Express.js designed to serve tw
     "status": "fail",
     "message": "Password dan Confirm Password tidak sama"  
   }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Gambar belum disertakan"  
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
+  }
 
   
 
