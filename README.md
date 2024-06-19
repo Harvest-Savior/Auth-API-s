@@ -199,6 +199,7 @@ jan lupa isi ini los
     "message": "Berhasil logout"
   }
 # Medicine CRUD Operations
+### Create
 #### Request:
 - **Endpoint:** `/addMedicine`
 - **Method:** `POST`
@@ -279,6 +280,11 @@ jan lupa isi ini los
     "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
   }
 
+### Read
+####Request:
+- **Endpoint:** `/getmedicines`
+- **Method:** `GET`
+- **Headers: `Authorization`: `Bearer <token>`**
 
   
   
