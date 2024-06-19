@@ -26,7 +26,7 @@ jan lupa isi ini los
   email: example@example.com
   password: your_password
   confPassword": your_password
-  file: image.jpg
+  file: image file
   
 #### Response
 - **Success (200): OK**
@@ -38,9 +38,9 @@ jan lupa isi ini los
         "id": 4,
         "namaLengkap": "Examplename",
         "email": "example@example.com",
-        "password": "$2b$10$2JWsuJeNWL7fblQDUPm7uewCylioHALYMyzHLIFLs2XMI2zStZ2Aa",
-        "gambar": "8a24fcc78c36fdc93766a4ec66a98a69.jpg",
-        "url": "http://34.50.79.94:8080/uploads/**********.jpg",
+        "password": "$your_password",
+        "gambar": "image file",
+        "url": "url image",
        
       }
     }
@@ -68,13 +68,13 @@ jan lupa isi ini los
     "status": "fail",
     "message": "Gambar belum disertakan"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
@@ -100,7 +100,7 @@ jan lupa isi ini los
     "message": "Berhasil login",
     "data": {
         "namaLengkap": "Examplename",
-        "gambar": "http://34.50.79.94:8080/uploads/*********.jpg",
+        "gambar": "image file",
         "email": "example@example.com",
     }
   }
@@ -131,7 +131,7 @@ jan lupa isi ini los
   namaToko: Examplename
   email: example@example.com
   alamat: your_address
-  noHP: your_telephone
+  noHP: your_No telephone
   password: your_password
   confPassword": your_password
   file: image.jpg
@@ -142,13 +142,13 @@ jan lupa isi ini los
     "message": "Registrasi berhasil",
     "data": {
         "id": 8,
-        "namaToko": "Toko Jaya",
-        "email": "jaya@gmail.com",
-        "alamat": "Jl.Ukrim",
-        "noHp": "082256718291",
-        "password": "$2b$10$JmsjFsb.j5rVSQ4qXDNDcegUKApDmzDS/VhwSfWL5ErasLpYTrx3W",
-        "gambar": "aa7c99f89b04361664f31d066f66f716.png",
-        "url": "http://34.50.79.94:8080/uploads/***************.png",
+        "namaToko": "Examplename",
+        "email": "example@example.com",
+        "alamat": "your_address",
+        "noHp": "your_no telephone",
+        "password": "$your_password",
+        "gambar": "image file",
+        "url": "url image",
        
     }
   }
@@ -176,13 +176,13 @@ jan lupa isi ini los
     "status": "fail",
     "message": "Gambar belum disertakan"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
@@ -226,14 +226,14 @@ jan lupa isi ini los
     "message": "Data obat berhasil ditambahkan",
     "medicine": {
         "id": 15,
-        "namaObat": "coba obat",
-        "deskripsi": "ini deskripis obat",
-        "stok": "12",
-        "harga": "12000",
-        "penyakit": "Bercak Daun pada Cabai",
-        "gambar": "*************.jpeg",
-        "linkProduct": "https://dillinger.io/",
-        "url": "http://34.50.79.94:8080/uploads/***********.jpeg",
+        "namaObat": "Example name",
+        "deskripsi": "Explain Deskripsi",
+        "stok": "Stock",
+        "harga": "Price",
+        "penyakit": "Disease",
+        "gambar": "image file",
+        "linkProduct": "url product",
+        "url": "url image",
     }
   }
 - **Error (400): Bad Request : Jika Bearer Token tidak di input**
@@ -260,19 +260,13 @@ jan lupa isi ini los
     "status": "fail",
     "message": "Gambar belum disertakan"
   }
-- **Error (400): Bad Request**
-   ``` json
-  {
-    "status": "fail",
-    "message": "Gambar belum disertakan"  
-  }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
@@ -294,14 +288,14 @@ jan lupa isi ini los
     "medicines": [
         {
             "id": 15,
-            "namaObat": "coba obat",
-            "deskripsi": "ini deskripis obat",
+            "namaObat": "Examplename",
+            "deskripsi": "Explain Deskripsi",
             "stok": "Stock"
             "harga": "Price",
             "penyakit": "Disease",
-            "gambar": "**********.jpeg",
-            "linkProduct": "https:*********",
-            "url": "http://34.50.79.94:8080/uploads/*********.jpeg",
+            "gambar": "image file",
+            "linkProduct": "url procuct",
+            "url": "url image",
         }
     ]
   }
@@ -352,6 +346,35 @@ jan lupa isi ini los
   penyakit: Updated Disease
   gambar: image file
   linkProduct: Updated Product Link
-  
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+  "status": "success",
+  "message": "Data obat berhasil diperbarui",
+  "data": {
+    "namaObat": "Updated Medicine Name",
+    "deskripsi": "Updated Medicine Description",
+    "penyakit": "Updated Disease",
+    "harga": "Updated Price",
+    "stok": "Updated Stock",
+    "gambar": "Updated Image",
+    "linkProduct": "Updated Product Link",
+    "url": "Image URL"
+   }
+  }
+- **Error (404): Not Found**
+   ``` json
+   {
+   "status": "fail",
+   "message": "User tidak ditemukan"
+   }
+- **Error (422): Unprocessable Entity**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"
+   }
+
     
 
