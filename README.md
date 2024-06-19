@@ -102,5 +102,15 @@ This project is an authentication API built with Express.js designed to serve tw
         "gambar": "http://34.50.79.94:8080/uploads/8a24fcc78c36fdc93766a4ec66a98a69.jpg",
         "email": "example@example.com",
     }
+  }
+- **Error (400): Bad Request**
+  ``` json
+  {
+    "status": "fail",
+    "message": "Password salah"
+  }
+## Medicine
+
+  
     
 
