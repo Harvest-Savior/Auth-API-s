@@ -15,18 +15,20 @@ This project is an authentication API built with Express.js designed to serve tw
 ## Farmer
 ### Request:
 
-- **Endpoint:** `/register/farmer`
-- **Method:** `POST`
-- **Request Body (JSON):**
-    ```json
-    {
-      "namaLengkap": "Examplename",
-      "email": "example@example.com",
-      "password": "your_password",
-      "confPassword": "your_password",
-      "file": "image.jpg"
-    }
+    - **Endpoint:** `/register/farmer`
+    - **Method:** `POST`
+    - **Request Body (JSON):**
+        ```json
+            {
+              "namaLengkap": "Examplename",
+              "email": "example@example.com",
+              "password": "your_password",
+              "confPassword": "your_password",
+              "file": "image.jpg"
+            }
+###Response
 
+  
 
 
     
