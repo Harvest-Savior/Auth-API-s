@@ -12,14 +12,14 @@ This project is an authentication API built with Express.js designed to serve tw
 
 
 # Endpoint Description
-### Farmer
+## Farmer
 ### Create Account ( POST /register/farmer)
 
-## Request:
+### Request:
 
-- **Endpoint:** `/register/farmer`
-- **Method:** `POST`
-- **Request Body (JSON):**
+- ####Endpoint: `/register/farmer`
+- ####Method: `POST`
+- ####Request Body (JSON):
 
 ```json
 {
