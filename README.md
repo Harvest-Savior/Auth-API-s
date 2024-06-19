@@ -281,10 +281,11 @@ jan lupa isi ini los
   }
 
 ### Read
-####Request:
+#### Request:
 - **Endpoint:** `/getmedicines`
 - **Method:** `GET`
-- **Headers: `Authorization`: `Bearer <token>`**
+- **Headers:
+    - `Authorization`: `Bearer <token>`**
 
   
   
