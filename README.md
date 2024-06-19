@@ -10,10 +10,19 @@ This project is an authentication API built with Express.js designed to serve tw
 # Access Our Deployed API
 jan lupa isi ini los
 # Table Of Content
-1. [Authentication API]
-   - [Create Account]Create Account (`POST /register/farmer`)
-   - [Login](#login-post-login)
-   - [Validate Token](#validate-token-post-ping)
+1. [Endpoint Description](#endpoint-description)
+   1. [Farmer](#farmer)
+      - [Create Account (POST /register/farmer)](#create-account-post-registerfarmer)
+      - [Login (POST /login/farmer)](#login-post-loginfarmer)
+      - [Logout (POST /logout/farmer)](#logout-post-logoutfarmer)
+   2. [Medicine Store](#medicine-store)
+      - [Create Account (POST /register/store)](#create-account-post-registerstore)
+      - [Logout (POST /logout/store)](#logout-post-logoutstore)
+2. [Medicine CRUD Operations](#medicine-crud-operations)
+   - [Create Medicine](#create-medicine)
+   - [Read Medicine](#read-medicine)
+   - [Delete Medicine](#delete-medicine)
+   - [Update Medicine](#update-medicine)
 
 
 # Endpoint Description
