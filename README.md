@@ -8,7 +8,7 @@ This project is an authentication API built with Express.js designed to serve tw
 - **Medicine CRUD Operations:** Create, read, update, and delete operations for medicine entities, accessible only by medicine store users.
 
 # Access Our Deployed API
-
+jan lupa isi ini los
 
 
 # Endpoint Description
@@ -213,7 +213,44 @@ This project is an authentication API built with Express.js designed to serve tw
   file: image.jpg
   linkProduct: url
 
-  Notes : Use token Bearer Token from Login User
+  Notes : Gunakan Bearer token yang didapat ketika Login
+
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+    "status": "success",
+    "message": "Data obat berhasil ditambahkan",
+    "medicine": {
+        "id": 15,
+        "namaObat": "coba obat",
+        "deskripsi": "ini deskripis obat",
+        "stok": "12",
+        "harga": "12000",
+        "penyakit": "Bercak Daun pada Cabai",
+        "gambar": "*************.jpeg",
+        "linkProduct": "https://dillinger.io/",
+        "url": "http://34.50.79.94:8080/uploads/***********.jpeg",
+        "storeuserId": 8,
+        "updatedAt": "2024-06-19T12:17:11.602Z",
+        "createdAt": "2024-06-19T12:17:11.602Z"
+    }
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+   "status": "fail",
+   "message": "Token belum disertakan"
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "User tidak ditemukan"
+  }
+
+
+  
   
     
 
