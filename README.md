@@ -23,6 +23,7 @@ jan lupa isi ini los
    - **[Read Medicine](#read-medicine)**
    - **[Delete Medicine](#delete-medicine)**
    - **[Update Medicine](#update-medicine)**
+3. **[Deploying the Application to Compute Engine](#deploying-the-application-to-compute-engine)**
 
 
 # Endpoint Description
@@ -389,6 +390,11 @@ jan lupa isi ini los
   "status": "fail",
   "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"
    }
+# Deploying the Application to Compute Engine
+# Developers
+   - [Carlos Daeli](https://github.com/carllosnd)
+   - [Berlian Ndruru](https://github.com/berlianndruru)
+
 
     
 
