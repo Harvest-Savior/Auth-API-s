@@ -91,5 +91,16 @@ This project is an authentication API built with Express.js designed to serve tw
     "email": "example@example.com",
     "password": "your_password"
   }
+#### Response
+- **Success (200): OK**
+  ``` json
+  {
+    "status": "success",
+    "message": "Berhasil login",
+    "data": {
+        "namaLengkap": "Examplename",
+        "gambar": "http://34.50.79.94:8080/uploads/8a24fcc78c36fdc93766a4ec66a98a69.jpg",
+        "email": "example@example.com",
+    }
     
 
