@@ -217,7 +217,7 @@ jan lupa isi ini los
 #### Request:
 - **Endpoint:** `/addMedicine`
 - **Method:** `POST`
-- - **Headers:**
+- **Headers:**
     - `Authorization`: `Bearer <token>`
     - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
