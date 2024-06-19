@@ -236,7 +236,7 @@ jan lupa isi ini los
         "createdAt": "2024-06-19T12:17:11.602Z"
     }
   }
-- **Error (400): Bad Request**
+- **Error (400): Bad Request : Jika Bearer Token tidak di input**
    ``` json
   {
    "status": "fail",
@@ -247,6 +247,36 @@ jan lupa isi ini los
   {
     "status": "fail",
     "message": "User tidak ditemukan"
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Nama obat sudah ada, silakan gunakan nama obat lain"
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Gambar belum disertakan"
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Gambar belum disertakan"  
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
+  }
+- **Error (400): Bad Request**
+   ``` json
+  {
+    "status": "fail",
+    "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
   }
 
 
