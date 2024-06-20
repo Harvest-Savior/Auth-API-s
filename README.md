@@ -8,7 +8,7 @@ This project is an authentication API built with Express.js designed to serve tw
 - **Medicine CRUD Operations:** Create, read, update, and delete operations for medicine entities, accessible only by medicine store users.
 
 # Access Our Deployed API
-jan lupa isi ini los
+34.50.79.94:8080/
 # Table Of Content
 1. **[Endpoint Description](#endpoint-description)**
    1. **[Farmer](#farmer)**
