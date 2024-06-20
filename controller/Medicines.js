@@ -230,6 +230,20 @@ export const updateMedicine = async (req, res) => {
             });
         }
 
+        const existingMedicine = await Medicines.findOne({
+            where: {
+                namaObat,
+                storeuserId: user.id
+            }
+        });
+
+        if (existingMedicine) {
+            return res.status(400).json({
+                status: 'fail',
+                message: 'Nama obat sudah ada, silakan gunakan nama obat lain'
+            });
+        }
+
         let gambarName = medicine.gambar;
         let url = medicine.url;
 
@@ -257,84 +271,53 @@ export const updateMedicine = async (req, res) => {
 
             // Hapus gambar lama jika ada
             if (medicine.gambar) {
-                fs.unlink(`./uploads/${medicine.gambar}`, (err) => {
-                    if (err) {
-                        console.log(err.message);
-                    }
-                });
+                try {
+                    fs.unlinkSync(`./uploads/${medicine.gambar}`);
+                } catch (err) {
+                    console.log(err.message);
+                }
             }
 
-            fs.rename(file.path, `./uploads/${gambarName}`, async (err) => {
-                if (err) {
-                    return res.status(500).json({
-                        status: 'fail',
-                        message: err.message
-                    });
-                }
+            try {
+                fs.renameSync(file.path, `./uploads/${gambarName}`);
+            } catch (err) {
+                return res.status(500).json({
+                    status: 'fail',
+                    message: 'Gagal memproses gambar yang diupload'
+                });
+            }
+        }
 
-                try {
-                    await Medicines.update({
-                        namaObat,
-                        deskripsi,
-                        stok,
-                        harga,
-                        penyakit,
-                        gambar: gambarName,
-                        linkProduct,
-                        url
-                    }, {
-                        where: {
-                            id: id,
-                            storeuserId: user.id
-                        }
-                    });
-
-                    res.status(200).json({
-                        status: 'success',
-                        message: 'Data obat berhasil diperbarui',
-                        data: {
-                            namaObat, deskripsi, penyakit, harga, stok, gambar: gambarName, linkProduct, url
-                        }
-                    });
-                } catch (error) {
-                    console.log(error.message);
-                    res.status(500).json({
-                        status: 'fail',
-                        message: 'Internal Server Error'
-                    });
+        try {
+            await Medicines.update({
+                namaObat,
+                deskripsi,
+                stok,
+                harga,
+                penyakit,
+                gambar: gambarName,
+                linkProduct,
+                url
+            }, {
+                where: {
+                    id: id,
+                    storeuserId: user.id
                 }
             });
-        } else {
-            try {
-                await Medicines.update({
-                    namaObat,
-                    deskripsi,
-                    stok,
-                    harga,
-                    penyakit,
-                    gambar: gambarName, // Tetap menggunakan gambar lama jika tidak diupdate
-                    linkProduct,
-                }, {
-                    where: {
-                        id: id,
-                        storeuserId: user.id
-                    }
-                });
 
-                res.status(200).json({
-                    status: 'success',
-                    message: 'Data obat berhasil diperbarui',
-                    data: {
-                        namaObat, deskripsi, penyakit, harga, stok, gambar: gambarName, linkProduct, url
-                    }
-                });
-            } catch (error) {
-                console.log(error.message);
-                res.status(500).json({
-                    status: 'fail',
-                    message: 'Internal Server Error'
-                });
-            }
+            res.status(200).json({
+                status: 'success',
+                message: 'Data obat berhasil diperbarui',
+                data: {
+                    namaObat, deskripsi, penyakit, harga, stok, gambar: gambarName, linkProduct, url
+                }
+            });
+        } catch (error) {
+            console.log(error.message);
+            res.status(500).json({
+                status: 'fail',
+                message: 'Gagal update data obat'
+            });
         }
     } catch (error) {
         console.log(error.message);
