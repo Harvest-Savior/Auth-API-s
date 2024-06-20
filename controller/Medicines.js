@@ -230,6 +230,9 @@ export const updateMedicine = async (req, res) => {
             });
         }
 
+        let gambarName = medicine.gambar;
+        let url = medicine.url;
+
         if (req.file) {
             const file = req.file;
             const ext = path.extname(file.originalname).toLowerCase();
@@ -249,9 +252,9 @@ export const updateMedicine = async (req, res) => {
                 });
             }
 
-            const gambarName = `${file.filename}${ext}`;
-            const url = generateImageUrl(req, gambarName)
-            
+            gambarName = `${file.filename}${ext}`;
+            url = generateImageUrl(req, gambarName);
+
             // Hapus gambar lama jika ada
             if (medicine.gambar) {
                 fs.unlink(`./uploads/${medicine.gambar}`, (err) => {
@@ -289,8 +292,8 @@ export const updateMedicine = async (req, res) => {
                     res.status(200).json({
                         status: 'success',
                         message: 'Data obat berhasil diperbarui',
-                        data:{
-                            namaObat, deskripsi, penyakit, harga, stok, gambarName, linkProduct, url
+                        data: {
+                            namaObat, deskripsi, penyakit, harga, stok, gambar: gambarName, linkProduct, url
                         }
                     });
                 } catch (error) {
@@ -309,6 +312,7 @@ export const updateMedicine = async (req, res) => {
                     stok,
                     harga,
                     penyakit,
+                    gambar: gambarName, // Tetap menggunakan gambar lama jika tidak diupdate
                     linkProduct,
                 }, {
                     where: {
@@ -320,8 +324,8 @@ export const updateMedicine = async (req, res) => {
                 res.status(200).json({
                     status: 'success',
                     message: 'Data obat berhasil diperbarui',
-                    data:{
-                        namaObat, deskripsi, penyakit, harga, stok, linkProduct
+                    data: {
+                        namaObat, deskripsi, penyakit, harga, stok, gambar: gambarName, linkProduct, url
                     }
                 });
             } catch (error) {

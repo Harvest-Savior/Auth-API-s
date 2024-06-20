@@ -11,6 +11,9 @@ const upload = multer({
     limits: { fileSize: 5000000 }, // 5MB file size limit
 });
 
+router.get('/', (req, res) => {
+    res.send("Welcome to Harvest Savior Authentication API")
+})
 router.get ('/users/farmer', verifyToken, getFarmerUsers)
 router.get ('/users/store', verifyToken, getStoreUsers)
 router.post('/register/farmer', upload.single('file'), registerFarmer)
