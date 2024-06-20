@@ -8,7 +8,23 @@ This project is an authentication API built with Express.js designed to serve tw
 - **Medicine CRUD Operations:** Create, read, update, and delete operations for medicine entities, accessible only by medicine store users.
 
 # Access Our Deployed API
-jan lupa isi ini los
+[auth-api](http://34.50.79.94:8080/)
+
+# Table Of Content
+1. **[Endpoint Description](#endpoint-description)**
+   1. **[Farmer](#farmer)**
+      - **[Create Account (POST /register/farmer)](#create-account-post-registerfarmer)**
+      - **[Login (POST /login/farmer)](#login-post-loginfarmer)**
+      - **[Logout (POST /logout/farmer)](#logout-post-logoutfarmer)**
+   2. **[Medicine Store](#medicine-store)**
+      - **[Create Account (POST /register/store)](#create-account-post-registerstore)**
+      - **[Logout (POST /logout/store)](#logout-post-logoutstore)**
+2. **[Medicine CRUD Operations](#medicine-crud-operations)**
+   - **[Create Medicine](#create-medicine)**
+   - **[Read Medicine](#read-medicine)**
+   - **[Delete Medicine](#delete-medicine)**
+   - **[Update Medicine](#update-medicine)**
+3. **[Deploying the Application to Compute Engine](#deploying-the-application-to-compute-engine)**
 
 
 # Endpoint Description
@@ -18,14 +34,15 @@ jan lupa isi ini los
 
 - **Endpoint:** `/register/farmer`
 - **Method:** `POST`
-- **Content-Type:** `multipart/form-data`
+- **Headers:**
+    - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
   namaLengkap: Examplename
   email: example@example.com
   password: your_password
   confPassword": your_password
-  file: image.jpg
+  file: image file
   
 #### Response
 - **Success (200): OK**
@@ -37,11 +54,10 @@ jan lupa isi ini los
         "id": 4,
         "namaLengkap": "Examplename",
         "email": "example@example.com",
-        "password": "$2b$10$2JWsuJeNWL7fblQDUPm7uewCylioHALYMyzHLIFLs2XMI2zStZ2Aa",
-        "gambar": "8a24fcc78c36fdc93766a4ec66a98a69.jpg",
-        "url": "http://34.50.79.94:8080/uploads/**********.jpg",
-        "updatedAt": "2024-06-19T09:20:21.161Z",
-        "createdAt": "2024-06-19T09:20:21.161Z"
+        "password": "$your_password",
+        "gambar": "image file",
+        "url": "url image",
+       
       }
     }
 - **Error (400): Bad Request**
@@ -68,13 +84,13 @@ jan lupa isi ini los
     "status": "fail",
     "message": "Gambar belum disertakan"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
@@ -100,7 +116,7 @@ jan lupa isi ini los
     "message": "Berhasil login",
     "data": {
         "namaLengkap": "Examplename",
-        "gambar": "http://34.50.79.94:8080/uploads/*********.jpg",
+        "gambar": "image file",
         "email": "example@example.com",
     }
   }
@@ -124,13 +140,14 @@ jan lupa isi ini los
 #### Request:
 - **Endpoint:** `/register/store`
 - **Method:** `POST`
-- **Content-Type:** `multipart/form-data`
+- **Header:** 
+  - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
   namaToko: Examplename
   email: example@example.com
   alamat: your_address
-  noHP: your_telephone
+  noHP: your_No telephone
   password: your_password
   confPassword": your_password
   file: image.jpg
@@ -141,15 +158,14 @@ jan lupa isi ini los
     "message": "Registrasi berhasil",
     "data": {
         "id": 8,
-        "namaToko": "Toko Jaya",
-        "email": "jaya@gmail.com",
-        "alamat": "Jl.Ukrim",
-        "noHp": "082256718291",
-        "password": "$2b$10$JmsjFsb.j5rVSQ4qXDNDcegUKApDmzDS/VhwSfWL5ErasLpYTrx3W",
-        "gambar": "aa7c99f89b04361664f31d066f66f716.png",
-        "url": "http://34.50.79.94:8080/uploads/***************.png",
-        "updatedAt": "2024-06-19T10:35:29.670Z",
-        "createdAt": "2024-06-19T10:35:29.670Z"
+        "namaToko": "Examplename",
+        "email": "example@example.com",
+        "alamat": "your_address",
+        "noHp": "your_no telephone",
+        "password": "$your_password",
+        "gambar": "image file",
+        "url": "url image",
+       
     }
   }
 - **Error (400): Bad Request**
@@ -176,13 +192,13 @@ jan lupa isi ini los
     "status": "fail",
     "message": "Gambar belum disertakan"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
@@ -199,11 +215,13 @@ jan lupa isi ini los
     "message": "Berhasil logout"
   }
 # Medicine CRUD Operations
-### Create
+### Create Medicine
 #### Request:
 - **Endpoint:** `/addMedicine`
 - **Method:** `POST`
-- **Content-Type:** `multipart/form-data`
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+    - `Content-Type`: `multipart/form-data`
 - **Request Body (Form-data):**
   ```plaintext
   namaObat: Examplename
@@ -224,17 +242,14 @@ jan lupa isi ini los
     "message": "Data obat berhasil ditambahkan",
     "medicine": {
         "id": 15,
-        "namaObat": "coba obat",
-        "deskripsi": "ini deskripis obat",
-        "stok": "12",
-        "harga": "12000",
-        "penyakit": "Bercak Daun pada Cabai",
-        "gambar": "*************.jpeg",
-        "linkProduct": "https://dillinger.io/",
-        "url": "http://34.50.79.94:8080/uploads/***********.jpeg",
-        "storeuserId": 8,
-        "updatedAt": "2024-06-19T12:17:11.602Z",
-        "createdAt": "2024-06-19T12:17:11.602Z"
+        "namaObat": "Example name",
+        "deskripsi": "Explain Deskripsi",
+        "stok": "Stock",
+        "harga": "Price",
+        "penyakit": "Disease",
+        "gambar": "image file",
+        "linkProduct": "url product",
+        "url": "url image",
     }
   }
 - **Error (400): Bad Request : Jika Bearer Token tidak di input**
@@ -261,33 +276,126 @@ jan lupa isi ini los
     "status": "fail",
     "message": "Gambar belum disertakan"
   }
-- **Error (400): Bad Request**
-   ``` json
-  {
-    "status": "fail",
-    "message": "Gambar belum disertakan"  
-  }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"  
   }
-- **Error (400): Bad Request**
+- **Error (422): Unprocessable Entity**
    ``` json
   {
     "status": "fail",
     "message": "Ukuran gambar tidak boleh lebih dari 5MB"  
   }
 
-### Read
+### Read Medicine
 #### Request:
 - **Endpoint:** `/getmedicines`
 - **Method:** `GET`
-- **Headers:
-    - `Authorization`: `Bearer <token>`**
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+    "status": "success",
+    "message": "Berhasil memuat data obat",
+    "medicines": [
+        {
+            "id": 15,
+            "namaObat": "Examplename",
+            "deskripsi": "Explain Deskripsi",
+            "stok": "Stock"
+            "harga": "Price",
+            "penyakit": "Disease",
+            "gambar": "image file",
+            "linkProduct": "url procuct",
+            "url": "url image",
+        }
+    ]
+  }
+- **Error (500): Internal Server Error**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Internal Server Error"
+  }
+### Delete Medicine
+#### Request:
+- **Endpoint:** `/delMedicines/:id`
+- **Method:** `DELETE`
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+  "status": "success",
+  "message": "Data obat berhasil dihapus"
+  }
+- **Error (400): Bad Request**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Data obat tidak ditemukan atau Anda tidak memiliki izin"
+  }
+- **Error (500): Internal Server Error**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Internal Server Error"
+  }
+### Update Medicine
+#### Request:
+- **Endpoint:** `/updateMedicines/:id`
+- **Method:** `PUT`
+- **Headers:**
+    - `Authorization`: `Bearer <token>`
+    - `Content-Type`: `multipart/form-data`
+- **Request Body (Form-data):**
+  ```plaintext
+  `namaObat`: Updated Medicine Name
+  deskripsi: Updated Medicine Description
+  stok: Updated Stock
+  harga: Updated Price
+  penyakit: Updated Disease
+  gambar: image file
+  linkProduct: Updated Product Link
+#### Response:
+- **Success (200): OK**
+  ``` json
+  {
+  "status": "success",
+  "message": "Data obat berhasil diperbarui",
+  "data": {
+    "namaObat": "Updated Medicine Name",
+    "deskripsi": "Updated Medicine Description",
+    "penyakit": "Updated Disease",
+    "harga": "Updated Price",
+    "stok": "Updated Stock",
+    "gambar": "Updated Image",
+    "linkProduct": "Updated Product Link",
+    "url": "Image URL"
+   }
+  }
+- **Error (404): Not Found**
+   ``` json
+   {
+   "status": "fail",
+   "message": "User tidak ditemukan"
+   }
+- **Error (422): Unprocessable Entity**
+   ``` json
+   {
+  "status": "fail",
+  "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"
+   }
+# Deploying the Application to Compute Engine
+# Developers
+   - [Carlos Daeli](https://github.com/carllosnd)
+   - [Berlian Ndruru](https://github.com/berlianndruru)
 
-  
-  
+
     
 
