@@ -24,7 +24,8 @@ This project is an authentication API built with Express.js designed to serve tw
    - **[Read Medicine](#read-medicine)**
    - **[Delete Medicine](#delete-medicine)**
    - **[Update Medicine](#update-medicine)**
-3. **[Deploying the Application to Compute Engine](#deploying-the-application-to-compute-engine)**
+3. **[Running Auth-API-s Locally](#running-auth-api-s-locally)**
+4. **[Deploying the Application to Compute Engine](#deploying-the-application-to-compute-engine)**
 
 
 # Endpoint Description
@@ -391,14 +392,15 @@ This project is an authentication API built with Express.js designed to serve tw
   "status": "fail",
   "message": "Gambar yang diupload harus dalam tipe .png, .jpg, atau .jpeg"
    }
+   
 # Running the Auth-API-s Locally
 #### 1. Cloning the Repository
-``` json
+``` 
 git clone <repository_link>
 cd <repository_directory>
 ```
 #### 2. Install all Dependencies
-``` json
+``` 
 npm insatll / npm i
 ```
 #### 3. Seting up Database Connection
@@ -406,7 +408,7 @@ Before running this application, you should make a instance and database using C
 #### 4. Setting up the Environment
 - **Create an .env file in your directory**
 - **After the .env file is created, create a variable as below :**
-  ``` json
+  ```
   ACCESS_TOKEN = 'your-secret-key'
   REFRESH_TOKEN = 'your-secret-key'
   DB_NAME='your-database-name'
@@ -414,37 +416,38 @@ Before running this application, you should make a instance and database using C
   DB_PASSWORD='your-password-database'
   DB_HOST='your-instance-ip-address'
 #### 5. Starting the Local Server
-``` json
+``` 
 npm run start
 ```
 #### 6. Testing using the Endpoint before
+
 # Deploying the Application using Compute Engine on Google Cloud Platform
 #### 1. Push your code to Github
 #### 2. Create the Firewall Rule to Allow port 8080
 #### 3. Create VM Instance and add the network tags using the firewalll rule before
 #### 4. Make Static IP Addres so that the Compute Engine IP does not change
 #### 5. After instance created, open SSH and clone your repository from github
-``` json
+```
 git clone <your-repository-link>
 ```
 #### 6. Install all Dependencies on Compute Engine
-``` json
+```
 npm install / npm i
 ```
-#### 6. Start the server
-``` json
+#### 7. Start the server
+```
 npm run start
 ```
-#### 7. Try the server that has been deployed
+#### 8. Try the server that has been deployed
 ``` plaintext
 externalIpAddress:8080
 ```
-#### 8. Download the Process Manager 
-``` json
+#### 9. Download the Process Manager 
+```
 npm install -g pm2
 ```
-#### 9. Run the node process manager
-``` json
+#### 10. Run the node process manager
+```
 pm2 start npm --name "your-server-name" -- run "start-prod"
 ```
 # Developers
